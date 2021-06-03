@@ -17,18 +17,29 @@ var mysqlConnection = mysql.createConnection({
 	database: 'db_clientes'
 });
 
-app.get('/cliente', function (request,respose){
+app.get('/cadastroCliente', function (request,response){
+	response.render('cadastroCliente');
+});
 
-	mysqlConnection.query('SELECT * FROM db_clientes.cliente;', function(err,result,fields){
-		
-		if(err){
-			console.log(err);
+app.post('/cadastroCliente', function(request, response){
+	nome = request.body.nome;
+	idade = request.body.idade;
+	mysqlConnection.query('insert into cliente(nome,data,email,ie_rg,cpf_cnpj,telefone,rua,bairro,cidade,estado,cep) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',[nome,data,email,ie_rg,cpf_cnpj,telefone,rua,bairro,cidade,estado,cep], function(err,result,fields){		
+		if(!err){
+			response.render('cadastroOk', {nome});
 		}else{
-			console.log(result);
+			console.log(erro);
 		}
-	});
+	})		
+});
 
-	request.render('cliente');
+app.get('/cadastroOk', function (request,response){
+	response.render('cadastroOk');
+});
+
+app.get('/listaCliente', function (request,response){
+
+	response.render('listaCliente', {data:result});	
 });
 
 app.listen(3000);

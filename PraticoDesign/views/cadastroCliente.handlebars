@@ -1,0 +1,57 @@
+<form action="cadastroCliente" method = "POST">
+	<label>Nome</label>
+	<input type="text" name ="nome"/>
+	<label>Data de Nascimento</label>
+	<input type="datetime-local" name="data">
+	<label>E-mail</label>
+	<input type="email" name="email">
+	<label>IE/RG</label>
+	<input type="number" name="ie_rg">
+	<label>CPF/CNPJ</label>
+	<input type="number" name="cpf_cnpj">
+	<label>Telefone</label>
+	<input type="tel" name="telefone">
+	<h3>Endereço</h3>
+	<label>Rua</label>
+	<input type="text" nama="rua">
+	<label>Bairro</label>
+	<input type="text" name="bairro">
+	<label>Cidade</label>
+	<input type="text" name="cidade">
+	<label>Estado</label>
+	<select id="estado" name="estado">
+    <option value="AC">Acre</option>
+    <option value="AL">Alagoas</option>
+    <option value="AP">Amapá</option>
+    <option value="AM">Amazonas</option>
+    <option value="BA">Bahia</option>
+    <option value="CE">Ceará</option>
+    <option value="DF">Distrito Federal</option>
+    <option value="ES">Espírito Santo</option>
+    <option value="GO">Goiás</option>
+    <option value="MA">Maranhão</option>
+    <option value="MT">Mato Grosso</option>
+    <option value="MS">Mato Grosso do Sul</option>
+    <option value="MG">Minas Gerais</option>
+    <option value="PA">Pará</option>
+    <option value="PB">Paraíba</option>
+    <option value="PR">Paraná</option>
+    <option value="PE">Pernambuco</option>
+    <option value="PI">Piauí</option>
+    <option value="RJ">Rio de Janeiro</option>
+    <option value="RN">Rio Grande do Norte</option>
+    <option value="RS">Rio Grande do Sul</option>
+    <option value="RO">Rondônia</option>
+    <option value="RR">Roraima</option>
+    <option value="SC">Santa Catarina</option>
+    <option value="SP">São Paulo</option>
+    <option value="SE">Sergipe</option>
+    <option value="TO">Tocantins</option>
+</select>
+	<label>CEP</label>
+	<input type="number" nome="cep"><br>
+	<label>Observações</label>
+	<textarea id="w3review" name="observacoes" rows="4" cols="50"></textarea>
+	<input type="submit" value="Enviar">
+</form>
+
