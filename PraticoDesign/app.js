@@ -58,4 +58,35 @@ app.get('/listaCliente', function(request, response) {
 
 });
 
+app.post('/login',function(request,response){
+
+    let login=request.body.login;
+    let password=request.body.password;
+    let logins="admin"
+    
+    if(logins.includes(login)){
+
+     if (password =="1234"){
+      
+        response.render('home');
+     }else{
+         response.end("Senha Invalida!");
+     }
+
+   }else{
+       response.end("Usuario nao existe!");
+    response.render('login');
+   }
+  })
+
+app.get('/login',function(request,response){
+    response.render('login');
+    
+})
+
+app.get('/home', function(request, response) {
+    response.render('home');
+});
+
+
 app.listen(3000);
