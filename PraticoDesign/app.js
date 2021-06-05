@@ -13,7 +13,7 @@ app.use(bp.json());
 var mysqlConnection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    //password: '123456', 
+    password: '123456', 
     database: 'db_pratico_design'
 });
 
@@ -35,11 +35,9 @@ app.post('/cadastroCliente', function(request, response) {
     estado = request.body.estado;
     cep = request.body.cep;
     mysqlConnection.query('insert into cliente(nome,nascimento,email,ie_rg,cpf_cnpj,telefone,rua,bairro,cidade,estado,cep) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [nome, nascimento, email, ie_rg, cpf_cnpj, telefone, rua, bairro, cidade, estado, cep], function(err, result, fields) {
-        if (!err) {
-            response.render('cadastroOk', { nome });
-        } else {
-            console.log(err);
-        }
+        if (err) {
+           console.log(err);
+        } 
     })
 });
 
