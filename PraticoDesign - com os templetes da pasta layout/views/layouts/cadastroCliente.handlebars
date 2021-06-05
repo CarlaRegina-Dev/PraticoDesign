@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+         <meta charset="UTF-8"/>
+         <link rel="stylesheet" type="text/css" href="/style.css">
+         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+         <meta id="viewport" name="viewport" content="width=device-width, user-scalable=no">
+         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+         <title>CNN Notícias</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="navigation">
+                <ul>
+                    <li>
+                        <a href="#">
+                            <span class="icon"><i class="fas fa-tasks"></i></span>
+                            <span class="title"><h2>Gestão Online</h2></span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <span class="icon"><i class="fas fa-home"></i></span>
+                            <span class="title">Painel</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <span class="icon"><i class="fas fa-dolly-flatbed"></i></i></span>
+                            <span class="title">Produtos</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <span class="icon"><i class="fas fa-users"></i></span>
+                            <span class="title">Clientes</span> 
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <span class="icon"><i class="fas fa-shopping-cart"></i></span>
+                            <span class="title">Vendas</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <span class="icon"><i class="fas fa-question-circle"></i></span>
+                            <span class="title">Ajuda</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <span class="icon"><i class="fas fa-cog"></i></span>
+                            <span class="title">Configurações</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" onclick="abaLogin()">
+                            <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
+                            <span class="title">Sair</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="main">
+                <div class="topbar">
+                    <div class="toggle" onclick="toggleMenu();"></div>
+                    <div class="search">
+                        <label>
+                            <input type="text" placeholder="Pesquise aqui">
+                            <i class="fas fa-search"></i>
+                        </label>
+                    </div>
+    
+                    <div class="user">
+                        <img src="imagens/user.png">
+                    </div>
+                </div>
+
+                <div class="details">
+                    <div class="recentOrders">
+                        <div class="cardHeader">
+                            <h2>Cadastro de Clientes</h2>
+                            
+                            <button href="#" class="btn" id="open" onclick="abaClientes()">
+                                <span><i class="far fa-user"></i></span>
+                                Lista de Clientes
+                            </button>    
+                        </div>
+ 
+                        <div class="content">
+
+                                {{{body}}}
+
+                        </div>
+                    </div>
+        
+                </div>
+            </div>
+        </div>
+
+     	<script src="/clientes.js"></script> 
+     	
+    </body>
+</html>
