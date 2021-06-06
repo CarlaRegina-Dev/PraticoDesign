@@ -4,8 +4,9 @@ var app = express();
 var bp = require('body-parser');
 var mysql = require('mysql2');
 
-app.use(express.static('public'));
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
+app.use(express.static(__dirname + '/views'));
+app.use(express.static(__dirname+ '/public'));
+app.engine('handlebars', exphbs({defaultLayout:'login'/'cadastroCliente'/'listaCliente'}));
 app.set('view engine', 'handlebars');
 app.use(bp.urlencoded({ extended: false }));
 app.use(bp.json());
@@ -23,8 +24,7 @@ app.get('/cadastroCliente', function(request, response) {
 
 app.post('/cadastroCliente', function(request, response) {
     nome = request.body.nome;
-    idade = request.body.idade;
-    nascimento = request.body.nascimento;
+    data_nascimento = request.body.data_nascimento;
     email = request.body.email;
     cpf_cnpj = request.body.cpf_cnpj;
     ie_rg = request.body.ie_rg;
@@ -34,15 +34,11 @@ app.post('/cadastroCliente', function(request, response) {
     cidade = request.body.cidade;
     estado = request.body.estado;
     cep = request.body.cep;
-    mysqlConnection.query('insert into cliente(nome,nascimento,email,ie_rg,cpf_cnpj,telefone,rua,bairro,cidade,estado,cep) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [nome, nascimento, email, ie_rg, cpf_cnpj, telefone, rua, bairro, cidade, estado, cep], function(err, result, fields) {
+    mysqlConnection.query('insert into cliente(nome,data_nascimento,email,ie_rg,cpf_cnpj,telefone,rua,bairro,cidade,estado,cep) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [nome, data_nascimento, email, ie_rg, cpf_cnpj, telefone, rua, bairro, cidade, estado, cep], function(err, result, fields) {
         if (err) {
            console.log(err);
         } 
     })
-});
-
-app.get('/cadastroOk', function(request, response) {
-    response.render('cadastroOk');
 });
 
 app.get('/listaCliente', function(request, response) {
