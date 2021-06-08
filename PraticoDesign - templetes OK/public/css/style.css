@@ -1,0 +1,765 @@
+
+@import url("https://use.fontawesome.com/releases/v5.13.0/css/all.css");
+html{
+    scroll-behavior: smooth;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    font-family: 'Montserrat';
+    overflow-x: hidden;
+}
+
+.container{
+    position: relative;
+    width: 100%;
+}
+
+.navigation{
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    background: #00194E;
+    transition: 0.5s;
+    overflow: hidden ;
+}
+
+.navigation.active{
+    width: 60px;
+}
+
+.navigation ul{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.navigation ul li{
+    position: relative;
+    width: 100%;
+    list-style: none;
+}
+
+.navigation ul li:hover{
+    background: #5BB4C4;
+}
+
+.navigation ul li:nth-child(1){
+    margin-bottom: 20px;
+}
+
+.navigation ul li:nth-child(1):hover{
+    background: transparent;
+}
+
+.navigation ul li a{
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: #fff;
+}
+
+.navigation ul li a .icon{
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+}
+
+.navigation ul li a .icon .fa{
+    color: #fff;
+    font-size: 24px;
+}
+
+.navigation ul li a .title{
+    position: relative;
+    display: block;
+    padding: 0 10px;
+    height: 60px;
+    line-height: 60px;
+    white-space: nowrap;
+}
+
+.main{
+    position: absolute;
+    width: calc(100% - 300px);
+    left: 300px;
+    min-height: 100vh;
+    background: #f5f5f5;
+    transition: 0.5s;
+}
+
+.main.active{
+    width: calc(100% - 60px);
+    left: 60px;
+}
+
+.main .topbar{
+    width: 100%;
+    background: #fff;
+    height: 60px;
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.toggle{
+    position: relative;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+}
+
+.toggle::before{
+    content: "\f0c9";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    line-height: 60px;
+    font-size: 24px;
+    text-align: center;
+    color: #111;
+}
+
+.search{
+    position: relative;
+    width: 400px;
+    margin: 0 10px;
+}
+
+.search label{
+    position: relative;
+    width: 100%;
+}
+
+.search label input{
+    width: 100%;
+    height: 40px;
+    border-radius: 40px;
+    padding: 5px 20px;
+    padding-left: 35px;
+    outline: none;
+    border: 1px solid rgba(0,0,0,0.2);
+}
+
+.search label .fas{
+    position: absolute;
+    left: 15px;
+    top: 4px;
+}
+
+.user{
+    position: relative;
+    min-width: 50px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.user img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.details{
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    padding-top: 0;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: 5fr;
+    margin-top: 25px;
+}
+
+.details .recentOrders{
+    position: relative;
+    min-height: 530px;
+    background: #fff;
+    padding: 20px;
+}
+
+.cardHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.cardHeader h2{
+    font-weight: 600;
+}
+
+button{
+    position: relative;
+    padding: 10px 20px;
+    background: #00194E;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    border: 0;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.btn{
+    margin-top: -4px;
+}
+
+
+.alinhar-botoes{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+input[type=text], input[type=number] {
+    width: 30%;
+    padding: 5px 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* .inputdetails[type=text], input[type=number] {
+    width: 30%;
+    padding: 5px 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+} */
+
+
+.icone-editar{
+    cursor: pointer;
+    color: #00194E;
+}
+
+.icone-remover{
+    cursor: pointer;
+    color: #00194E;
+}
+
+
+
+
+.details table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.details table thead td{
+    font-weight: 600;
+}
+
+.details .recentOrders table tr{
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.details .recentOrders table tbody tr:last-child{
+    border-bottom: none;
+}
+
+.details .recentOrders table tbody tr:hover{
+    background: #5B84C4;
+    color: #fff;
+}
+
+.details .recentOrders table tbody .modal_form:hover{
+    background: #fff;
+    color: #000;
+}
+
+.details .recentOrders table tr td{
+    padding: 9px 8px;
+    padding-right: 9px;
+}
+
+.details .recentOrders table thead tr td:last-child,
+.details .recentOrders table tbody tr td:last-child{
+    text-align: center;
+}
+
+.details .recentOrders table thead tr td:nth-child(2),
+.details .recentOrders table tbody tr td:nth-child(2){
+    text-align: center;
+    padding-right: 20px;
+}
+
+.details .recentOrders table thead tr td:nth-child(3),
+.details .recentOrders table tbody tr td:nth-child(3){
+    text-align: center;
+}
+
+.details .recentOrders table thead tr td:nth-child(4),
+.details .recentOrders table tbody tr td:nth-child(4){
+    text-align: center;
+}
+
+.details .recentOrders table thead tr td:nth-child(5),
+.details .recentOrders table tbody tr td:nth-child(5){
+    text-align: center;
+}
+
+.details .recentOrders table thead tr td:nth-child(6),
+.details .recentOrders table tbody tr td:nth-child(6){
+    text-align: center;
+}
+
+.details .recentOrders table thead tr td:nth-child(7),
+.details .recentOrders table tbody tr td:nth-child(7){
+    text-align: center;
+}
+
+.details .recentOrders table thead tr td:nth-child(8),
+.details .recentOrders table tbody tr td:nth-child(8){
+    text-align: center;
+}
+
+
+
+
+
+/* CSS do formulário de Cadastro de Clientes */
+.content form .user-details{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 0 12px 0;
+  }
+  form .user-details .input-box{
+    margin-bottom: 15px;
+    width: calc(100% / 2 - 20px);
+  }
+  form .input-box span.titledetails{
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+  .user-details .input-box input{
+    height: 45px;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    border-radius: 5px;
+    padding-left: 15px;
+    border: 1px solid #ccc;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+  }
+
+  .user-details .input-box select{
+    height: 45px;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    border-radius: 5px;
+    padding-left: 15px;
+    border: 1px solid #ccc;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+  }
+  
+  .user-details .input-box textarea{
+      width: 100%;
+      height: 150px;
+      resize: none;
+      outline: none;
+      font-size: 16px;
+      border-radius: 5px;
+      padding-left: 15px;
+      border: 1px solid #ccc;
+      border-bottom-width: 2px;
+      transition: all 0.3s ease;
+  
+    }
+
+
+
+
+
+/* RESPONSIVIDADE */
+@media (max-width: 992px)
+{
+    .navigation{
+        left: -300px;
+    }
+
+    .navigation.active{
+        left: 0px;
+        width: 300px;
+    }
+
+    .main{
+        width: 100%;
+        left: 0;
+    }
+
+    .main.active{
+        width: calc(100% -300px);
+        left: 300px;
+    }
+
+    .cardBox{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media (max-width: 768px)
+{
+    .details{
+        grid-template-columns: repeat(1,1fr);
+    }
+
+    .cardHeader h2{
+        font-weight: 600;
+        font-size: 18px;  
+    }
+}
+
+@media (max-width: 480px)
+{
+    .cardBox{
+        grid-template-columns: repeat(1,1fr);
+    }
+
+    .details .recentOrders{
+        overflow: auto;
+    }
+
+    .details .recentOrders table{
+        width: 600px;
+    }
+
+    .navigation{
+        width: 100%;
+        left: -100%;
+        z-index: 1000;
+    }
+
+    .navigation.active{
+        width: 100%;
+        left: 0;
+    }
+
+    .toggle.active{
+        position: fixed;
+        z-index: 10000;
+        right: 0;
+        left: initial;
+    }
+
+    .toggle.active::before{
+        color: #fff;
+    }
+
+    .main, .main.active{
+        width: 100%;
+        left: 0;
+    }
+}
+
+
+@media(max-width: 584px){
+    .container{
+     max-width: 100%;
+   }
+   form .user-details .input-box{
+       margin-bottom: 15px;
+       width: 100%;
+     }
+     form .category{
+       width: 100%;
+     }
+     .content form .user-details{
+       max-height: 300px;
+       overflow-y: scroll;
+     }
+     .user-details::-webkit-scrollbar{
+       width: 5px;
+     }
+     }
+     @media(max-width: 459px){
+     .container .content .category{
+       flex-direction: column;
+     }
+   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.wave{
+    position: fixed;
+	bottom: 0;
+	left: 0;
+	height: 100%;
+	z-index: -1;
+}
+
+.container2{
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap :7rem;
+    padding: 0 2rem;
+}
+
+.img{
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.login-content{
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	text-align: center;
+}
+
+.img img{
+	width: 500px;
+}
+
+.loginform{
+	width: 360px;
+}
+
+.login-content img{
+    height: 100px;
+}
+
+.login-content h2{
+	margin: 15px 0;
+	color: #00194E;
+	text-transform: uppercase;
+	font-size: 30px;
+}
+
+.login-content h3{
+	margin: 15px 0;
+	color: #00194E;
+	text-transform: uppercase;
+	font-size: 20px;
+}
+
+.login-content .input-div{
+	position: relative;
+    display: grid;
+    grid-template-columns: 7% 93%;
+    margin: 25px 0;
+    padding: 5px 0;
+    border-bottom: 2px solid #d9d9d9;
+    
+}
+
+.login-content .input-div.one{
+	margin-top: 0;
+}
+
+.i{
+	color: #d9d9d9;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.i i{
+	transition: .3s;
+}
+
+.input-div > div{
+    position: relative;
+	height: 45px;
+}
+
+.input-div > div > h5{
+	position: absolute;
+	left: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+	color: #999;
+	font-size: 18px;
+	transition: .3s;
+}
+
+.input-div:before, .input-div:after{
+	content: '';
+	position: absolute;
+	bottom: -2px;
+	width: 0%;
+	height: 2px;
+	/* background-color: #00194E; */
+	transition: .4s;
+}
+
+.input-div:before{
+	right: 50%;
+}
+
+.input-div:after{
+	left: 50%;
+}
+
+.input-div.focus:before, .input-div.focus:after{
+	width: 50%;
+}
+
+.input-div.focus > div > h5{
+	top: -5px;
+	font-size: 15px;
+}
+
+.input-div.focus > .i > i{
+	color: #00194E;
+}
+
+.input-div > div > input{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	/* border: none; */
+    border: 1px solid #d9d9d9;
+	outline: none;
+	background: none;
+	padding: 0.5rem 0.7rem;
+	font-size: 1.2rem;
+	color: #555;
+	font-family: 'poppins', sans-serif;
+}
+
+.input-div.pass{
+	margin-bottom: 4px;
+}
+
+/* a{
+	display: block;
+	text-align: right;
+	text-decoration: none;
+	color: #999;
+	font-size: 0.9rem;
+	transition: .3s;
+	margin-top: 15px;
+} */
+.link{
+    display: block;
+	text-align: right;
+	text-decoration: none;
+	color: #999;
+	font-size: 0.9rem;
+	transition: .3s;
+	margin-top: 15px;
+}
+
+/* a:hover{
+	
+	color: #00194E;
+} */
+
+.link:hover{
+	
+	color: #00194E;
+}
+
+.btn2{
+	display: block;
+	width: 100%;
+	height: 50px;
+	border-radius: 25px;
+	outline: none;
+	border: none;
+	background-image: linear-gradient(to right, #00194E, #193A6F, #00194E);
+	background-size: 200%;
+	font-size: 1.2rem;
+	color: #fff;
+	font-family: 'Poppins', sans-serif;
+	text-transform: uppercase;
+	margin: 1rem 0;
+	cursor: pointer;
+	transition: .5s;
+}
+.btn:hover{
+	background-position: right;
+}
+
+
+@media screen and (max-width: 1050px){
+	.container{
+		grid-gap: 5rem;
+	}
+}
+
+@media screen and (max-width: 1000px){
+	form{
+		width: 290px;
+	}
+
+	.login-content h2{
+        font-size: 2.4rem;
+        margin: 8px 0;
+	}
+
+	.img img{
+		width: 400px;
+	}
+}
+
+@media screen and (max-width: 900px){
+	.container{
+		grid-template-columns: 1fr;
+	}
+
+	.img{
+		display: none;
+	}
+
+	.wave{
+		display: none;
+	}
+
+	.login-content{
+		justify-content: center;
+	}
+}
