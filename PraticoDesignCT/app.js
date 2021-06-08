@@ -6,7 +6,7 @@ var mysql = require('mysql2');
 
 app.use(express.static(__dirname + '/views'));
 app.use(express.static(__dirname+ '/public'));
-app.engine('handlebars', exphbs({defaultLayout:'login'/'cadastroCliente'/'listaCliente'}));
+app.engine('handlebars', exphbs({defaultLayout:'main'}));
 app.set('view engine', 'handlebars');
 app.use(bp.urlencoded({ extended: false }));
 app.use(bp.json());
@@ -14,6 +14,7 @@ app.use(bp.json());
 var mysqlConnection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
+    port: 3306,
     password: '123456', 
     database: 'db_pratico_design'
 });
@@ -62,25 +63,20 @@ app.post('/login',function(request,response){
 
      if (password =="1234"){
       
-        response.render('home');
+        response.render('cadastroCliente');
      }else{
          response.end("Senha Invalida!");
      }
 
    }else{
        response.end("Usuario nao existe!");
-    response.render('login');
+       response.render('login');
    }
   })
 
 app.get('/login',function(request,response){
-    response.render('login');
+    response.render('login',{layout:'loginlayout.handlebars'});
     
 })
-
-app.get('/home', function(request, response) {
-    response.render('home');
-});
-
 
 app.listen(3000);
