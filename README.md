@@ -19,4 +19,5 @@ Sistema de web de cadastro de usuário:
 
 
 ## Instruções:
-`Para acessar o sistema utlize a rota http://localhost:3000/login acessando a rota é possivel navegar pelo sistema utilizando os botões listar cliente e incluir cliente`
+`Para acessar o sistema utlize a rota http://localhost:3000/login` 
+Acessando a rota é possivel navegar pelo sistema utilizando os botões listar cliente e incluir cliente
